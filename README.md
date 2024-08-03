@@ -51,11 +51,12 @@ To get started with CampusCOIN, follow these steps:
    ```sh
    dotnet restore
 4. Build the project:
-```sh
+   ```sh
    dotnet build
 5. Run the project:
-```sh
+   ```sh
    dotnet run
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
