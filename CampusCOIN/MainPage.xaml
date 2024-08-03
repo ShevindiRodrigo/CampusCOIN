@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CampusCOIN.MainPage"
+             Title=""
+             NavigationPage.HasNavigationBar="False">
+
+    <!--Define styles for text and images-->
+    <ContentPage.Resources>
+        <Style x:Key="TextStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Margin" Value="30,5,20,0"/>
+        </Style>
+        <Style x:Key="RoundImageFrameStyle" TargetType="Frame">
+            <Setter Property="WidthRequest" Value="70" />
+            <Setter Property="HeightRequest" Value="70" />
+            <Setter Property="CornerRadius" Value="50" />
+            <Setter Property="IsClippedToBounds" Value="True" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="HorizontalOptions" Value="Start" />
+            <Setter Property="VerticalOptions" Value="Start" />
+        </Style>
+        <Style x:Key="RoundImageStyle" TargetType="Image">
+            <Setter Property="Aspect" Value="AspectFill" />
+        </Style>
+    </ContentPage.Resources>
+
+    <!--ScrollView to make page scrollable-->
+    <ContentPage.Content>
+        <!--Set the background for the page-->
+        <!--Path data refered from Figma Inpect feature-->
+        <Grid>
+            <AbsoluteLayout>
+                <ContentView>
+                    <ContentView.Content>
+                        <Grid>
+                            <Grid WidthRequest="900.252" HeightRequest="2400" Rotation="-0.90">
+                                <Path Data="M-139.024 53.7489C-126.977 20.0615 -88.2899 -16.7212 -36.4109 -20.1552C20.9064 -23.9492 59.1786 22.6679 113.677 37.0221C138.539 43.5704 164.896 38.1302 191.247 39.8072C237.715 42.7645 292.729 29.1855 327.606 50.6368C360.438 70.83 358.432 107.953 347.655 136.006C337.56 162.282 297.414 175.893 271.569 196.497C247.57 215.629 231.066 237.816 201.153 252.8C162.353 272.235 121.447 304.832 73.4444 295.739C24.819 286.528 21.6826 239.403 -10.1034 212.782C-36.9005 190.34 -77.6182 177.308 -98.0235 152.136C-122.952 121.385 -150.886 86.9218 -139.024 53.7489Z"
+                                Fill="#E0A5F7" 
+                                      Opacity="0.5"/>
+                            </Grid>
+                        </Grid>
+                    </ContentView.Content>
+                </ContentView>
+            </AbsoluteLayout>
+            <AbsoluteLayout>
+                <ContentView>
+                    <ContentView.Content>
+                        <Grid>
+                            <Grid WidthRequest="3400" HeightRequest="2000">
+                                <Path Data="M-110.828 69.2537C-98.6322 35.5362 -59.4845 -1.2829 -6.99797 -4.72719C50.9907 -8.53254 89.7001 38.1182 144.833 52.4767C169.984 59.027 196.65 53.5785 223.31 55.2532C270.32 58.2063 325.981 44.608 361.261 66.0724C394.472 86.2778 392.435 123.432 381.525 151.51C371.306 177.81 330.687 191.438 304.535 212.063C280.252 231.215 263.549 253.423 233.283 268.423C194.025 287.88 152.634 320.51 104.071 311.417C54.879 302.205 51.7165 255.041 19.5648 228.402C-7.54071 205.945 -48.7318 192.908 -69.3701 167.718C-94.583 136.945 -122.837 102.456 -110.828 69.2537Z"
+               Fill="#E0A5F7"
+               Opacity="0.5"/>
+                            </Grid>
+                        </Grid>
+                    </ContentView.Content>
+                </ContentView>
+            </AbsoluteLayout>
+            <VerticalStackLayout
+            Spacing="25">
+                <Grid>
+
+                    <!--Set app logo and name-->
+                    <Grid
+                    Margin="20,20,0,30"
+                    Grid.Row="1"
+                    ColumnDefinitions="*,*"
+                    HorizontalOptions="Start"
+>
+                        <Grid Grid.Column="0"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start">
+
+                            <Frame Style="{StaticResource RoundImageFrameStyle}">
+                                <Image Source="unistud.png"
+                                   Style="{StaticResource RoundImageStyle}" />
+                            </Frame>
+                        </Grid>
+                        <Grid Grid.Column="1"
+                          VerticalOptions="Start"
+                          HorizontalOptions="Start"
+                          Margin="0,10,0,0">
+                            <Label 
+                             Text="CampusCOIN"
+                             Style="{StaticResource TextStyle}"/>
+                        </Grid>
+                    </Grid>
+                    <Label 
+                        x:Name="HelloLabel"
+                     Margin="30,100,0,0"
+                     FontSize="30"
+                     Style="{StaticResource TextStyle}"/>
+                    <!--Grid to display total balance-->
+                    <Grid
+                    x:Name="TotalMonthlyBalance"
+                    IsVisible="Hidden"
+                        Margin="0,-38,0,0">
+                        <Rectangle 
+                        x:Name="BalanceRect1"
+                        Margin="50,200,10,0"
+                        Fill="Gray"
+                        RadiusX="20"
+                        RadiusY="20"
+                        Opacity="0.4"
+                        Rotation="-8.12"
+                        WidthRequest="281"
+                        HeightRequest="140"
+                        />
+
+                        <Rectangle
+                        x:Name="BalanceRect2"
+                        Margin="0,210,0,0"
+                        Fill="#A5F7E0"
+                        RadiusX="20"
+                        RadiusY="20"
+                        WidthRequest="281"
+                        HeightRequest="140"
+                        />
+
+                        <Label
+                        x:Name="lblBal1"
+                        Margin="80,235,0,0"
+                        Text="MONTHLY BALANCE"
+                        Style="{StaticResource TextStyle}"
+                        TextColor="Gray"
+                        FontSize="Medium"
+                        />
+                        <Label
+                        x:Name="MonthlyBalance"
+                        Margin="80,280,0,0"
+                        Style="{StaticResource TextStyle}"
+                        FontSize="24"
+                        />
+                        <Label
+                        x:Name="Month"
+                        Margin="100,40,80,20"
+                        FontFamily="K2D"
+                        VerticalOptions="EndAndExpand"
+                        HorizontalOptions="EndAndExpand"/>
+                    </Grid>
+                 <!--Frame to set monthly budget-->
+                    <Frame
+                    x:Name="SetBudgetFrame"
+                    CornerRadius="20"
+                    Padding="20"
+                    Margin="20,160,20,10"
+                    WidthRequest="280"
+                    HeightRequest="140"
+                    BorderColor="Transparent"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+                        <Frame.Background>
+                            <RadialGradientBrush Center="0.7,0.9">
+                                <GradientStop Color="#A5F7E0" Offset="0.72"/>
+                                <GradientStop Color="White" Offset="0.3"/>
+                            </RadialGradientBrush>
+                        </Frame.Background>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTapSetBudget"/>
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout>
+                            <Label Text="SET BUDGET"
+                               Style="{StaticResource TextStyle}"
+                           HorizontalTextAlignment="Center"/>
+                            <Image
+                        Source="budget.png"
+                            WidthRequest="50"
+                            HeightRequest="50"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </Grid>
+                <!--Progress bar to track total tuition fee goal-->
+                <Grid
+                Grid.Row="1"
+                ColumnDefinitions="*,*"
+                HorizontalOptions="Fill">
+                    <Grid
+                    Grid.Column="0"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalOptions="StartAndExpand"
+                    >
+                        <Label Text="TOTAL TUITION SAVING"
+                           WidthRequest="170"                          
+                           Style="{StaticResource TextStyle}"
+                           FontSize="14"/>
+                    </Grid>
+                    <Grid
+                    Grid.Column="1"
+                    HorizontalOptions="Start">
+                        <Label 
+                        x:Name="Progreesslbl"
+                        Style="{StaticResource TextStyle}"
+                        FontSize="14"/>
+                    </Grid>
+                </Grid>
+
+                <ProgressBar
+                x:Name="tuitiongoalProgress"
+                Margin="20,5,20,5"
+                VerticalOptions="CenterAndExpand"
+                ProgressColor="DarkMagenta"
+                
+                
+            />
+                <!-- Grid for expenses and incomes sections -->
+                <Grid
+                Grid.Row="1"
+                ColumnDefinitions="*,*"
+                HorizontalOptions="CenterAndExpand">
+
+                    <Grid
+                    Grid.Column="0"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start">
+                        <!--Expense section-->
+                        <Frame 
+                        CornerRadius="20"
+                        Margin="10,0,10,0"
+                        BorderColor="Transparent">
+
+                            <Frame.Background>
+                                <RadialGradientBrush Center="0.7,0.9">
+                                    <GradientStop Color="#E5F7A5" Offset="0.8"/>
+                                    <GradientStop Color="White" Offset="0.7"/>
+                                </RadialGradientBrush>
+                            </Frame.Background>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapViewExpenses"/>
+                            </Frame.GestureRecognizers>
+                            <VerticalStackLayout>
+                                <Label Text="EXPENSES"
+                                Style="{StaticResource TextStyle}"
+                                FontSize="13"
+                                HorizontalTextAlignment="Center"/>
+                                <Label
+                                x:Name="Expenselbl"
+                                Style="{StaticResource TextStyle}"
+                                HorizontalOptions="Center"
+                                FontSize="16"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </Grid>
+                    <Grid
+                    Grid.Column="1"
+                    VerticalOptions="End"
+                    HorizontalOptions="End">
+                        <!--Income Section-->
+                        <Frame 
+                        CornerRadius="20"
+                        Padding="20"
+                        Margin="10,0,10,0"
+                        BorderColor="Transparent">
+
+                            <Frame.Background>
+                                <RadialGradientBrush Center="0.7,0.9">
+                                    <GradientStop Color="#A5F7E0" Offset="0.8"/>
+                                    <GradientStop Color="White" Offset="0.7"/>
+                                </RadialGradientBrush>
+                            </Frame.Background>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTapViewIncome"/>
+                            </Frame.GestureRecognizers>
+                            <VerticalStackLayout>
+                                <Label Text="INCOMES"
+                                   Style="{StaticResource TextStyle}"
+                                   FontSize="13"
+                                   HorizontalTextAlignment="Center"/>
+                                <Label
+                                x:Name="Incomelbl"
+                                Style="{StaticResource TextStyle}"
+                                HorizontalOptions="Center"
+                                FontSize="16"/>
+                            </VerticalStackLayout>
+
+
+                        </Frame>
+                    </Grid>
+                </Grid>
+                <!--Total Current Balance section-->
+                <Frame
+                x:Name="CurrentBalance"
+                IsVisible="Hidden"
+                 CornerRadius="20"
+                 Padding="20"
+                 WidthRequest="320"
+                HasShadow="True"
+                 HeightRequest="58"
+                 VerticalOptions="End"
+                HorizontalOptions="CenterAndExpand"
+                Background="#E7E279">
+                    <Label
+                    x:Name="TotalBalancelbl"
+                    Style="{StaticResource TextStyle}"
+                    HeightRequest="30"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"/>
+                </Frame>
+            </VerticalStackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
+

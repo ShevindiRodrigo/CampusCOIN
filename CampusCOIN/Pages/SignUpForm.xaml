@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CampusCOIN.Pages.SignUpForm"
+             Title="">
+    <!-- Define styles for various controls used on the page -->
+    <ContentPage.Resources>
+        <!-- Style for Entry controls -->
+        <Style x:Key="EntryStyle" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="Margin" Value="20,10" />
+        </Style>
+        <!--Styles for Label controls-->
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="TextColor" Value="Gray" />
+            <Setter Property="Margin" Value="20,5,20,0" />
+        </Style>
+        <!--Styles for Error Label controls-->
+        <Style x:Key="ErrorLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="TextColor" Value="Red" />
+            <Setter Property="HeightRequest" Value="100" />
+            <Setter Property="Margin" Value="10,5,20,30" />
+        </Style>
+        <!--Styles for Button controls-->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="WidthRequest" Value="120" />
+            <Setter Property="HeightRequest" Value="57" />
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+    <Grid>
+        <!-- Main Content -->
+        <Image
+            Source="bigvectory.png"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            Margin="0,-5,0,20"
+            WidthRequest="652"
+            HeightRequest="790"
+            Aspect="AspectFit"/>
+
+        <StackLayout VerticalOptions="Center" HorizontalOptions ="Center" Margin="20,30,20,25">
+
+            <Image
+                Source="loginlogo.png"
+                VerticalOptions="Center"
+                WidthRequest="300"
+                HeightRequest="170"
+                Aspect="AspectFit"
+            />
+
+            <!-- Name Label and Entry -->
+            <Label 
+                Text="NAME" 
+                Style="{StaticResource LabelStyle}" />
+
+            <Entry Placeholder="Enter Name!" 
+                x:Name="NameEntry"
+                Style="{StaticResource EntryStyle}" />
+
+            <!-- Email Label and Entry -->
+            <Label 
+                Text="EMAIL" 
+                Style="{StaticResource LabelStyle}" />
+
+            <Entry 
+                x:Name="EmailEntry"
+                Placeholder="Enter Email!" 
+                Style="{StaticResource EntryStyle}"
+                TextChanged="EmailValidation"/>
+            
+            <Label
+                x:Name="EmailError"
+                Style="{StaticResource ErrorLabelStyle}"
+                HeightRequest="30"
+                IsVisible ="Hidden"/>
+
+            <!-- PhoneNumber Label and Entry -->
+            <Label 
+                Text="PHONE NUMBER" 
+                Style="{StaticResource LabelStyle}" />
+
+            <Entry 
+                x:Name="PhoneEntry"
+                Placeholder="Enter Phone Number!"
+                MaxLength="10"
+                Style="{StaticResource EntryStyle}" />
+
+            <!-- Password Label and Entry -->
+            <Label 
+                Text="PASSWORD" 
+                Style="{StaticResource LabelStyle}" />
+
+            <Entry 
+                x:Name="PasswordEntry"
+                Placeholder="******" 
+               IsPassword="True" 
+               Style="{StaticResource EntryStyle}"
+               TextChanged="PasswordValidation"/>
+
+            <Label
+                x:Name="PwdError"
+                Style="{StaticResource ErrorLabelStyle}"
+                IsVisible="Hidden"/>
+        </StackLayout>
+
+        <!-- Login Button -->
+        <Grid 
+		    Grid.Row="1" 
+		    VerticalOptions="End" 
+		    HorizontalOptions="Center"
+		    Margin="0,30,0,15"
+            >
+            <Image 
+                  Source="button2.png" 
+                  WidthRequest="136" 
+                  HeightRequest="75" 
+                  Aspect="AspectFill"/>
+
+            <Button 
+                x:Name="JoinBtn"
+                  Text="Join" 
+                  Style="{StaticResource ButtonStyle}"
+                  HorizontalOptions="Center" 
+                  VerticalOptions="Center"
+                Clicked="OnJoin_Clicked"
+               />
+        </Grid>
+
+    </Grid>
+    </ScrollView>
+</ContentPage>

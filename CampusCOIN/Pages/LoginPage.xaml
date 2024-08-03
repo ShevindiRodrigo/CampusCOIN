@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CampusCOIN.Pages.LoginPage"
+             Title="">
+    <!-- Define styles for various controls used on the page -->
+    <ContentPage.Resources>
+        <!--Styles for Welcome Text labels-->
+        <Style x:Key="WelcomeTextStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+        </Style>
+        <!--Styles for login button-->
+        <Style x:Key="LoginButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="WidthRequest" Value="120" />
+            <Setter Property="HeightRequest" Value="60" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid Margin ="20,20,20,20">
+        <!-- Main Content -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center">
+            <Label 
+                    Text="Welcome To CampusCOIN !" 
+                    Style="{StaticResource WelcomeTextStyle}" />
+            <Grid >
+                <Image
+					    Source="vector.png"
+					    WidthRequest="390"
+                        HeightRequest="340"
+                        Aspect="AspectFit"
+						Margin="0,90,0,0"
+						/>
+
+                <Image
+                        Source="unistud.png"
+                        WidthRequest="361"
+                        HeightRequest="380"
+                        Aspect="AspectFit" />
+            </Grid>
+        </VerticalStackLayout>
+    <!--Login button-->
+        <Grid 
+				Grid.Row="1" 
+				VerticalOptions="End" 
+				HorizontalOptions="End"
+				Margin="0,0,0,15">
+            <Image 
+                    Source="button1.png" 
+                    WidthRequest="126" 
+                    HeightRequest="60" 
+                    Aspect="AspectFill"/>
+            <Button 
+                    Text="Login" 
+                    Style="{StaticResource LoginButtonStyle}"
+                Clicked="OnLogin_Clicked"/>
+        </Grid>
+    </Grid>
+
+</ContentPage>

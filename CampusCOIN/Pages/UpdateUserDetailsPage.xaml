@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CampusCOIN.Pages.UpdateUserDetailsPage"
+             Title="">
+    <!-- Define styles for various controls used on the page -->
+    <ContentPage.Resources>
+        <!-- Style for Entry controls -->
+        <Style x:Key="EntryStyle" TargetType="Entry">
+            <Setter Property="BackgroundColor" Value="White" />
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="HeightRequest" Value="50" />
+            <Setter Property="Margin" Value="20,10" />
+        </Style>
+        <!--Styles for Label controls-->
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="TextColor" Value="Gray" />
+            <Setter Property="Margin" Value="20,5,20,0" />
+        </Style>
+        <!--Styles for Error Label controls-->
+        <Style x:Key="ErrorLabelStyle" TargetType="Label">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="TextColor" Value="Red" />
+            <Setter Property="HeightRequest" Value="100" />
+            <Setter Property="Margin" Value="10,5,20,30" />
+        </Style>
+        <!--Styles for Button controls-->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="WidthRequest" Value="120" />
+            <Setter Property="HeightRequest" Value="57" />
+        </Style>
+        <!--Styles for Text controls-->
+        <Style x:Key="TextStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Margin" Value="20,5,20,0"/>
+            <Setter Property="HeightRequest" Value="40"/>
+        </Style>
+        <!--Styles for round image frame-->
+        <Style x:Key="RoundImageFrameStyle" TargetType="Frame">
+            <Setter Property="WidthRequest" Value="70" />
+            <Setter Property="HeightRequest" Value="70" />
+            <Setter Property="CornerRadius" Value="50" />
+            <Setter Property="IsClippedToBounds" Value="True" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="HorizontalOptions" Value="Start" />
+            <Setter Property="VerticalOptions" Value="Start" />
+        </Style>
+
+        <Style x:Key="RoundImageStyle" TargetType="Image">
+            <Setter Property="Aspect" Value="AspectFill" />
+        </Style>
+    </ContentPage.Resources>
+    <ScrollView>
+        <Grid>
+            <!-- Main Content -->
+            <Image
+                Source="bigvectory.png"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"
+                Margin="0,-5,0,20"
+                WidthRequest="652"
+                HeightRequest="790"
+                Aspect="AspectFit"/>
+            <!-- Use styles for round image -->
+            <Grid
+                Grid.Row="1"
+                ColumnDefinitions="*,*"
+                HorizontalOptions="Start"
+                Margin="20">
+                <Grid Grid.Column="0"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start">
+                    <Frame Style="{StaticResource RoundImageFrameStyle}">
+                        <Image Source="unistud.png"
+                               Style="{StaticResource RoundImageStyle}" />
+                    </Frame>
+                </Grid>
+                <Grid Grid.Column="1"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Start"
+                    Margin="0,10,0,0">
+                    <Label 
+                        Text="CampusCOIN"
+                        Style="{StaticResource TextStyle}"/>
+                </Grid>
+            </Grid>
+            <StackLayout VerticalOptions="Center" HorizontalOptions ="Center" Margin="20,30,20,25">
+
+                <Label
+                    Text="Update your Account Details"
+                    Style="{StaticResource TextStyle}"
+                    Margin="0,50,0,20"
+                    HorizontalTextAlignment="Center"/>
+                
+                <Image
+                    Source="loginlogo.png"
+                    VerticalOptions="Center"
+                    WidthRequest="300"
+                    HeightRequest="170"
+                    Aspect="AspectFit"
+                    />
+
+
+                <!-- Name Label and Entry -->
+                <Label 
+                    Text="NAME" 
+                    Style="{StaticResource LabelStyle}" />
+
+                <Entry Placeholder="Enter New Name!" 
+                    x:Name="NameEntry"
+                    Text="{Binding Name}"
+                    Style="{StaticResource EntryStyle}" />
+
+                <!-- Email Label and Entry -->
+                <Label 
+                    Text="EMAIL" 
+                    Style="{StaticResource LabelStyle}" />
+
+                <Entry 
+                    Text="{Binding Email}"
+                    x:Name="EmailEntry"
+                    Style="{StaticResource EntryStyle}"
+                    IsReadOnly="True"/>
+
+                <!-- PhoneNumber Label and Entry -->
+                <Label 
+                    Text="PHONE NUMBER" 
+                    Style="{StaticResource LabelStyle}" />
+
+                <Entry 
+                    Text="{Binding Phone}"
+                    x:Name="PhoneEntry"
+                    Placeholder="Enter New Phone Number!"
+                    MaxLength="10"
+                    Style="{StaticResource EntryStyle}" />
+
+                <!-- Login Button -->
+                <Grid 
+                    Grid.Row="1" 
+                    VerticalOptions="End" 
+                    HorizontalOptions="Center"
+                    Margin="0,30,0,15"
+                    >
+                    <Image 
+                        Source="button2.png" 
+                        WidthRequest="136" 
+                        HeightRequest="75" 
+                        Aspect="AspectFill"/>
+
+                    <Button 
+                        x:Name="UpdateBtn"
+                        Text="Update" 
+                        Style="{StaticResource ButtonStyle}"
+                        HorizontalOptions="Center" 
+                        VerticalOptions="Center"
+                        Clicked="OnUpdate_Clicked"
+                    />
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ScrollView>
+</ContentPage>

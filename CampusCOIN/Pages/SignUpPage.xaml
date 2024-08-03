@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CampusCOIN.Pages.SignUpPage"
+             Shell.NavBarIsVisible="False">
+    <!-- Define styles for various controls used on the page -->
+    <ContentPage.Resources>
+        <!--Styles for Welcome Text labels-->
+        <Style x:Key="WelcomeTextStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="FontSize" Value="24" />
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+            <Setter Property="VerticalTextAlignment" Value="Center" />
+        </Style>
+        <!--Styles for join button-->
+        <Style x:Key="JoinButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="Black" />
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="WidthRequest" Value="120" />
+            <Setter Property="HeightRequest" Value="57" />
+        </Style>
+        <!--Styles for button-->
+        <Style x:Key="LabelButtonStyle" TargetType="Button">
+            <Setter Property="TextColor" Value="DarkGreen" />
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="FontSize" Value="18" />
+            <Setter Property="BackgroundColor" Value="Transparent" />
+            <Setter Property="WidthRequest" Value="150" />
+            <Setter Property="HeightRequest" Value="57" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid Margin="20,20,20,20">
+        <!-- Main Content -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <VerticalStackLayout Grid.Row="0" VerticalOptions="Center" HorizontalOptions="Center">
+            <Label
+				Text="Welcome To CampusCOIN !"
+				Style="{StaticResource WelcomeTextStyle}" />
+            <Grid >
+                <Image
+					Source="vector.png"
+					WidthRequest="390"
+					HeightRequest="340"
+					Aspect="AspectFit"
+					Margin="0,90,0,0"
+						/>
+
+                <Image
+					Source="unistud.png"
+					WidthRequest="361"
+					HeightRequest="380"
+					Aspect="AspectFit" />
+            </Grid>
+        </VerticalStackLayout>
+
+        <Grid Grid.Row="1"
+			 ColumnDefinitions="*,*"
+			 VerticalOptions="Start"
+			 Margin="10,10,10,10">
+
+            <!-- Let's Join Button -->
+            <Grid Grid.Column="0"
+                  VerticalOptions="Start"
+                  HorizontalOptions="Start">
+                <Image
+                    Source="button1.png"
+                    WidthRequest="126"
+                    HeightRequest="60"
+                    Aspect="AspectFill"/>
+                <Button
+                    Text="Let's Join"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Style="{StaticResource JoinButtonStyle}"
+                    Clicked="OnJoinBtn_Clicked"/>
+            </Grid>
+            <!-- Right column for the label button -->
+            <Grid Grid.Column="1"
+                  VerticalOptions="End"
+                  HorizontalOptions="End">
+                <Button
+                    Text="Existing User?"
+                    FontAttributes="Bold"
+                    Style="{StaticResource LabelButtonStyle}"
+                    Clicked="ExistingUserBtn_Clicked"/>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</ContentPage>

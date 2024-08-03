@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CampusCOIN.Pages.ReceiptViewPage"
+             Title="">
+    <!-- Define styles for various controls used on the page -->
+    <ContentPage.Resources>
+        <Style x:Key="TextStyle" TargetType="Label">
+            <Setter Property="FontFamily" Value="K2D" />
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Margin" Value="20,5,20,0"/>
+            <Setter Property="HeightRequest" Value="40"/>
+        </Style>
+        <!--Styles for round image frame-->
+        <Style x:Key="RoundImageFrameStyle" TargetType="Frame">
+            <Setter Property="WidthRequest" Value="70" />
+            <Setter Property="HeightRequest" Value="70" />
+            <Setter Property="CornerRadius" Value="50" />
+            <Setter Property="IsClippedToBounds" Value="True" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="HorizontalOptions" Value="Start" />
+            <Setter Property="VerticalOptions" Value="Start" />
+        </Style>
+
+        <Style x:Key="RoundImageStyle" TargetType="Image">
+            <Setter Property="Aspect" Value="AspectFill" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid>
+            <AbsoluteLayout>
+                <ContentView>
+                    <ContentView.Content>
+                        <Grid>
+                            <Grid WidthRequest="725.252" HeightRequest="2000" Rotation="-0.90">
+                                <Path Data="M-136.657 124.154C-122.869 55.2888 -78.6052 -19.9113 -19.2589 -26.9448C46.3087 -34.7156 90.0783 60.5667 152.417 89.8944C180.855 103.274 211.007 92.1458 241.151 95.5669C294.306 101.6 357.24 73.8273 397.132 117.668C434.684 158.937 432.382 234.823 420.047 292.17C408.492 345.886 362.565 373.719 332.995 415.845C305.539 454.96 286.654 500.318 252.432 530.954C208.043 570.693 161.243 637.337 106.333 618.763C50.7116 599.947 47.1349 503.617 10.7804 449.209C-19.8681 403.341 -66.443 376.712 -89.7793 325.262C-118.288 262.409 -150.235 191.968 -136.657 124.154Z"
+                      Fill="#A5F7E0"
+                      Opacity="0.5"/>
+                            </Grid>
+                        </Grid>
+                    </ContentView.Content>
+                </ContentView>
+            </AbsoluteLayout>
+            <AbsoluteLayout>
+                <ContentView>
+                    <ContentView.Content>
+                        <Grid>
+                            <Grid WidthRequest="680" HeightRequest="2200">
+                                <Path Data="M-104.459 151.842C-90.5091 82.9153 -45.7296 7.64848 14.3076 0.607573C80.6385 -7.17142 124.917 88.1935 187.98 117.546C216.75 130.936 247.253 119.798 277.747 123.221C331.521 129.258 395.188 101.46 435.544 145.338C473.533 186.643 471.203 262.596 458.723 319.993C447.034 373.756 400.572 401.615 370.658 443.778C342.881 482.928 323.776 528.326 289.156 558.99C244.25 598.765 196.904 665.468 141.355 646.878C85.0861 628.048 81.4688 531.633 44.6916 477.178C13.6868 431.27 -33.43 404.619 -57.0374 353.125C-85.8774 290.217 -118.196 219.715 -104.459 151.842Z"
+                      Fill="#A5F7E0"
+                      Opacity="0.5"/>
+                            </Grid>
+                        </Grid>
+                    </ContentView.Content>
+                </ContentView>
+            </AbsoluteLayout>
+            <VerticalStackLayout Margin="20">
+                <!-- Use styles for round image -->
+                <Grid
+                    Grid.Row="1"
+                    ColumnDefinitions="*,*"
+                    HorizontalOptions="Start"
+>
+                    <Grid Grid.Column="0"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start">
+
+                        <Frame Style="{StaticResource RoundImageFrameStyle}">
+                            <Image Source="unistud.png"
+                                   Style="{StaticResource RoundImageStyle}" />
+                        </Frame>
+                    </Grid>
+                    <Grid Grid.Column="1"
+                          VerticalOptions="Start"
+                          HorizontalOptions="Start"
+                          Margin="0,10,0,0">
+                        <Label 
+                             Text="CampusCOIN"
+                             Style="{StaticResource TextStyle}"/>
+                    </Grid>
+                </Grid>
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions ="Center" Margin="0,10,0,0">
+                    <Frame
+                        Margin="20"
+                        WidthRequest="250"
+                        HeightRequest="200">
+                        <ScrollView>
+                            <Image
+                                x:Name="ReceiptImage"
+                                Aspect="AspectFit"/>
+                        </ScrollView>
+                    </Frame>
+                    <!--Receipt details-->
+                    <Frame
+                        HasShadow="True"
+                        CornerRadius="20"
+                        BackgroundColor="WhiteSmoke"
+                        HeightRequest="250">
+                        <VerticalStackLayout Margin="0,-20,0,0">
+                            <!-- Receipt title and date -->
+                            <Grid 
+                                ColumnDefinitions="*,*"
+                                HorizontalOptions="Start"
+                                Margin="0,10,0,5">
+                                <Grid
+                                    Grid.Column="0"
+                                    VerticalOptions="Start"
+                                    HorizontalOptions="Start">
+                                    <Label x:Name="Title"
+                                           Style="{StaticResource TextStyle}"
+                                           TextColor="DarkGreen"
+                                           FontFamily="K2DBold"
+                                           WidthRequest="120"/>
+                                    
+                                </Grid>
+                                <Grid
+                                    Grid.Column="1"
+                                    VerticalOptions="StartAndExpand"
+                                    HorizontalOptions="EndAndExpand"
+                                    >
+                                    <Label x:Name="Date"/>
+                                </Grid>
+                            </Grid>
+                            <Grid 
+                                ColumnDefinitions="*,*"
+                                HorizontalOptions="Start"
+                                Margin="0,0,0,5">
+                                <Grid
+                                    Grid.Column="0"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="Start">
+                                    <Label Text="CATEGORY"
+                                           FontFamily="K2DBold"
+                                           FontSize="14"
+                                           WidthRequest="100"/>
+                                </Grid>
+                                <!-- Receipt category -->
+                                <Grid
+                                    Grid.Column="1"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="Center"
+                                    Margin="0,0,10,10">
+                                    <Label x:Name="Category"
+                                   Style="{StaticResource TextStyle}"/>
+                                </Grid>
+                            </Grid>
+                            <Grid 
+                                ColumnDefinitions="*,*"
+                                HorizontalOptions="Start">
+                                <Grid
+                                    Grid.Column="0"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="Start">
+                                    <Label Text="AMOUNT"
+                                           FontFamily="K2DBold"
+                                           FontSize="14"
+                                           WidthRequest="100"/>
+                                </Grid>
+                                <!-- Receipt amount -->
+                                <Grid
+                                    Grid.Column="1"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="Center"
+                                    Margin="0,0,10,10">
+                                    <Label x:Name="Amount"
+                                   Style="{StaticResource TextStyle}"/>
+                                </Grid>
+                            </Grid>
+                            <Grid 
+                                ColumnDefinitions="*,*"
+                                HorizontalOptions="Start">
+                                <Grid
+                                    Grid.Column="0"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="Start">
+                                    <Label Text="DESCRIPTION"
+                                           FontFamily="K2DBold"
+                                           FontSize="14"
+                                           WidthRequest="100"/>
+                                </Grid>
+                                <!-- Receipt description -->
+                                <Grid
+                                    Grid.Column="1"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="Center"
+                                    Margin="10,0,10,10">
+                                    <Label x:Name="Description"
+                                   Style="{StaticResource TextStyle}"/>
+                                </Grid>
+                            </Grid>
+                            
+                        </VerticalStackLayout>
+                        
+                    </Frame>
+                    
+                </VerticalStackLayout>
+                <Grid
+                    Grid.Row="1"
+                    ColumnDefinitions="*,*"
+                    
+>
+                    <Grid Grid.Column="0"
+                        VerticalOptions="Start"
+                        HorizontalOptions="Start"
+                          Margin="0,20,0,0">
+                        <AbsoluteLayout HorizontalOptions="Start" VerticalOptions="Center" Margin="20,0,0,0">
+                            <!-- background image -->
+                            <Image Source="bluebtnopp.png"
+                                      WidthRequest="100" HeightRequest="50" />
+
+                            <!-- Transparent button overlay -->
+                            <Button Text="Edit"
+                                    TextColor="Black"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="Transparent"
+                                    FontSize="14"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    WidthRequest="100" HeightRequest="50"
+                                    Clicked="ExpenseEdit_Clicked"
+                                   />
+                        </AbsoluteLayout>
+                    </Grid>
+                    <Grid Grid.Column="1"
+                        VerticalOptions="End"
+                        HorizontalOptions="End">
+                        <AbsoluteLayout HorizontalOptions="Center" VerticalOptions="Center" Margin="0,0,20,0">
+                            <!-- background image -->
+                            <Image Source="bluebtn.png"
+                                      WidthRequest="100" HeightRequest="50"
+                                   />
+
+                            <!-- Transparent button overlay -->
+                            <Button Text="Delete"
+                                    TextColor="Black"
+                                    FontAttributes="Bold"
+                                    BackgroundColor="Transparent"
+                                    FontSize="14"
+                                    WidthRequest="100" HeightRequest="50"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Clicked="ExpenseDelete_Clicked"/>
+                        </AbsoluteLayout>
+                    </Grid>
+                </Grid>
+            </VerticalStackLayout>
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
